@@ -1,0 +1,70 @@
+---
+import ProductCard from "./ProductCard.astro";
+
+const products = [
+  {
+    image: "product_cactus1.png",
+    title: "Product Title",
+    price: "8.00",
+    linkUrl: "#",
+  },
+  {
+    image: "product_cactus2.png",
+    title: "Product Title",
+    price: "8.00",
+    linkUrl: "#",
+  },
+  {
+    image: "product_cactus3.png",
+    title: "Product Title",
+    price: "8.00",
+    linkUrl: "#",
+  },
+  {
+    image: "product_cactus4.png",
+    title: "Product Title",
+    price: "8.00",
+    linkUrl: "#",
+  },
+  {
+    image: "product_cactus5.png",
+    title: "Product Title",
+    price: "8.00",
+    linkUrl: "#",
+  },
+  {
+    image: "product_cactus6.png",
+    title: "Product Title",
+    price: "8.00",
+    linkUrl: "#",
+  },
+  {
+    image: "product_cactus7.png",
+    title: "Product Title",
+    price: "8.00",
+    linkUrl: "#",
+  },
+  {
+    image: "product_cactus8.png",
+    title: "Product Title",
+    price: "8.00",
+    linkUrl: "#",
+  },
+];
+---
+
+<section class="mx-auto">
+  <h1 class="text-center text-4xl font-bold greenText">What We Offer To You</h1>
+  <div class="grid grid-cols-4 py-12 p-4">
+    {
+      products.map((product) => (
+        <ProductCard
+          image={product.image}
+          title={product.title}
+          price={product.price}
+          linkUrl={product.linkUrl}
+        />
+      ))
+    }
+  </div>
+</section>

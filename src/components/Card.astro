@@ -1,0 +1,19 @@
+---
+interface Props {
+  image:string;
+	title: string;
+  body: string;
+}
+
+const { image, title, body } = Astro.props;
+---
+
+<li class="p-8 shadow-md m-4 list-none">
+	<img src={`../images/`+image} alt={title}/>
+  <h2 class="font-bold text-lg text-[#285A43]">
+    {title}
+  </h2>
+  <p>
+    {body}
+  </p>
+</li>

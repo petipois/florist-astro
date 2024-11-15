@@ -1,0 +1,17 @@
+---
+interface Props {
+  image: string;
+  title: string;
+  content: string;
+}
+
+const { image, title, content } = Astro.props;
+---
+
+<div class="p-8 shadow-md hover:bg-gray-300">
+  <img src={`../images/` + image} alt={title} class="pb-4"/>
+  <h2 class="font-bold text-lg greenText">
+    {title}
+  </h2>
+  <p class="greenText">{content}</p>
+</div>

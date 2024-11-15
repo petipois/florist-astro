@@ -1,0 +1,33 @@
+---
+const images = [
+  {
+    src:"../images/Gallery2.png"
+  },
+  {
+    src:"../images/Gallery3.png"
+  },
+  {
+    src:"../images/Gallery4.png"
+  },
+  {
+    src:"../images/Gallery5.png"
+  }
+]
+---
+
+<section class="mx-auto py-12 p-8">
+  <h1 class="text-center text-4xl font-bold greenText pb-4">Our Gallery View</h1>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+    <div class="row-span-2">
+      <img src="../images/Gallery1.png" alt="Gallery Plant Image"/>
+    </div>
+
+    {
+      images.map((image)=>(
+        <div>
+          <img src={image.src} alt="Gallley Plant Image" />
+          </div>
+      ))
+    }
+  </div>
+</section>

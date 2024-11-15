@@ -1,0 +1,31 @@
+---
+import ReviewCard from "./ReviewCard.astro"
+
+const reviews=[
+    {
+        image:"testimonial1.png",
+        title:"Jessica Watson",
+        content:"Highly recommend this website for quality flowers and plants. Great prices, timely delivery and excellent customer service."
+    },
+    {
+        image:"testimonial2.png",
+        title:"Kate Szu",
+        content:"Great service, beautiful flowers, timely delivery. Highly recommend"
+    },
+    {
+        image:"testimonial3.png",
+        title:"Grace",
+        content:"I am very happy with my purchase from this website, the plants were healthy and arrived on time"
+    },
+]
+---
+<section class="mx-auto py-12 p-8">
+<h1 class="text-center greenText text-4xl font-bold">What They Say About Us</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3">
+        {
+            reviews.map((feature)=>(
+                <ReviewCard image={feature.image}, title={feature.title} content={feature.content}/>
+            ))
+        }
+        </div>
+</section>

@@ -1,0 +1,41 @@
+---
+import FeatureCard from "./FeatureCard.astro"
+
+const features=[
+    {
+        image:"TimeIcon.png",
+        title:"Quality Product",
+        content:"Our flowers are of the highest quality, carefully selected and sourced from reputable"
+    },
+    {
+        image:"FreshIcon.png",
+        title:"Always Fresh",
+        content:"Our flowers are always fresh, handpicked and delivered promptly for maximum longevity and enjoyment."
+    },
+    {
+        image:"TempIcon.png",
+        title:"Work Smart",
+        content:"We work smart, using innovative techniques and technology to streamline our processes"
+    },
+    {
+        image:"PruningIcon.png",
+        title:"Excellent Service",
+        content:"We pride ourselves on providing excellent service, going above and beyond to meet our customers' needs"
+    }
+]
+---
+
+<div class="grid grid-cols-2">
+  <div>
+    <img src="/images/FeatureProduct.png" alt="Feature Product" />
+  </div>
+  <div>
+    <div class="grid grid-cols-2">
+{
+    features.map((feature)=>(
+        <FeatureCard image={feature.image}, title={feature.title} content={feature.content}/>
+    ))
+}
+    </div>
+  </div>
+</div>

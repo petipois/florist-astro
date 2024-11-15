@@ -1,0 +1,24 @@
+---
+interface Props {
+  image: string;
+  title: string;
+  price: string;
+  linkUrl: string;
+}
+
+const { image, title, price, linkUrl } = Astro.props;
+---
+
+<div class="p-2 shadow-md m-2">
+  <img src={`../images/` + image} alt={title} />
+  <h2 class="font-bold text-lg greenText">
+    {title}
+  </h2>
+  <div class="flex justify-between">
+    <p>
+      $ {price}
+    </p>
+    <a href={linkUrl} class="button greenBG text-white p-2 rounded-xl"
+      >Buy Now</a>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Hero from "../components/Hero.astro";
+import Store from "../components/Store.astro";
+import Featured from "../components/Featured.astro";
+import Gallery from "../components/Gallery.astro";
+
+import Testimonials from "../components/Testmonials.astro";
+import Subscribe from "../components/Subscribe.astro";
+
+
+import BlogCard from "../components/BlogCard.astro";
+import Footer from "../components/Footer.astro";
+
+
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("blog");
+---
+
+<Layout title="Welcome to Astro.">
+  <Hero />
+  <div class="grid grid-cols-2 p-12">
+    <div class="ml-8 mr-4">
+      <h1 class="greenText text-4xl font-bold">
+        We Help Choose the Most Suitable Plants for You
+      </h1>
+    </div>
+    <div class="mr-8">
+      <p>
+        Our selection includes a wide variety of flowers, from classic roses to
+        exotic orchids, as well as a variety of lush indoor and outdoor plants
+        and also offer unique floral arrangements that are perfect for any
+        occasion, whether you're looking to brighten up your home or send a
+        thoughtful gift.
+      </p>
+    </div>
+  </div>
+  <div class="grid grid-cols-3 p-12">
+    <Card
+      image="Indoor_Plant.png"
+      title="Indoor Plants"
+      body="Bring the beauty of nature to your outdoor spaces with our wide selection of outdoor plants"
+    />
+    <Card
+      image="Outdoor_Plant.png"
+      title="Outdoor Plants"
+      body="Bring a touch of greenery to your living spaces with our collection of indoor plants, perfect for purifying the air and adding a natural touch to your home."
+    />
+
+    <Card
+      image="Bamboo.png"
+      title="Plant Pots"
+      body="Add a touch of style to your indoor or outdoor spaces with our collection of pots plants, available in a variety of sizes and designs to fit any decor"
+    />
+  </div>
+  <Store />
+  <Featured />
+  <Gallery />
+  <Testimonials />
+  <Subscribe />
+  <section class="p-12">
+    <h1 class="greenText text-4xl font-bold  text-center">Interesting Blog to Read</h1>
+  <div class="grid grid-cols-1 md:grid-cols-3">
+    {
+      allPosts.map((post) => (
+        <BlogCard
+          title={post.data.title}
+          image={post.data.image}
+          description={post.data.description}
+          date={post.data.pubDate}
+        />
+      ))
+    }
+  </div>
+  </section>
+  <Footer />
+</Layout>
