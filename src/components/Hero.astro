@@ -1,28 +1,11 @@
 ---
-const navLinks = [
-  { text: "Home", link: "/" },
-  { text: "About", link: "/" },
-  { text: "Planters", link: "/" },
-  { text: "Contact", link: "/" },
-];
+import Navbar from "../components/Navbar.astro";
 ---
 
 <section
-  class="bg-gray-300 bg-center bg-no-repeat bg-[url('./images/hero_floral.png')] bg-blend-multiply"
+  class="bg-[#285A43] bg-center bg-no-repeat bg-[url('./images/hero_floral.png')]"
 >
-  <nav class="flex items-center p-2 bg-none justify-between ml-12 mr-12">
-    <a href="/"><img src="./images/lush_logo.png" alt="Lush Logo" /></a>
-    <ul class="flex justify-between p-4 text-white">
-      {
-        navLinks.map((navlink) => (
-          <li class="p-2">
-            <a href={navlink.link}>{navlink.text}</a>
-          </li>
-        ))
-      }
-      <button class="p-2 w-24 border-2">Call Us</button>
-    </ul>
-  </nav>
+ <Navbar/>
   <div class="px-4 mx-auto max-w-screen-xl text-center py-44">
     <h1
       class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl"

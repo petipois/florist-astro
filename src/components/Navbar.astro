@@ -1,0 +1,25 @@
+---
+const navLinks = [
+  { text: "Home", link: "/" },
+  { text: "About", link: "/#features" },
+  { text: "Planters", link: "/#gallery" },
+  
+   { text: "Testimonials", link: "/#testimonials" },
+   
+   { text: "Blog", link: "/#blog" },
+  { text: "Contact", link: "/#contact" },
+];
+---
+<nav class="flex items-center p-2 bg-none justify-between ml-12 mr-12">
+    <a href="/"><img src="./images/lush_logo.png" alt="Lush Logo" /></a>
+    <ul class="flex justify-between p-4 text-white">
+      {
+        navLinks.map((navlink) => (
+          <li class="p-2">
+            <a href={navlink.link}>{navlink.text}</a>
+          </li>
+        ))
+      }
+      <button class="p-2 w-24 border-2">Call Us</button>
+    </ul>
+  </nav>

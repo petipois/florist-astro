@@ -11,7 +11,6 @@ import Subscribe from "../components/Subscribe.astro";
 
 
 import BlogCard from "../components/BlogCard.astro";
-import Footer from "../components/Footer.astro";
 
 
 import { getCollection } from "astro:content";
@@ -36,7 +35,7 @@ const allPosts = await getCollection("blog");
       </p>
     </div>
   </div>
-  <div class="grid grid-cols-3 p-12">
+  <div class="grid grid-cols-3 p-12" id="features">
     <Card
       image="Indoor_Plant.png"
       title="Indoor Plants"
@@ -59,7 +58,7 @@ const allPosts = await getCollection("blog");
   <Gallery />
   <Testimonials />
   <Subscribe />
-  <section class="p-12">
+  <section class="p-12" id="blog">
     <h1 class="greenText text-4xl font-bold  text-center">Interesting Blog to Read</h1>
   <div class="grid grid-cols-1 md:grid-cols-3">
     {
@@ -69,10 +68,10 @@ const allPosts = await getCollection("blog");
           image={post.data.image}
           description={post.data.description}
           date={post.data.pubDate}
+          link={`/blog/${post.data.slug}`}
         />
       ))
     }
   </div>
   </section>
-  <Footer />
 </Layout>

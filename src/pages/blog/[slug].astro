@@ -1,0 +1,36 @@
+---
+// src/pages/blog/[slug].astro
+import { getCollection, getEntryBySlug } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+// 1. Tell Astro which static paths to generate
+export async function getStaticPaths() {
+    const posts = await getCollection("blog");
+    return posts.map((post) => ({
+        params: { slug: post.data.slug },
+    }));
+}
+
+// 2. Fetch the specific post using the slug parameter
+const { slug } = Astro.params;
+const post = await getEntryBySlug("blog", slug);
+
+// Optional safety check if a slug doesn't match
+if (!post) {
+    return Astro.redirect("/");
+}
+
+const { Content } = await post.render();
+---
+
+<Layout title={post.data.title}>
+    <main class="max-w-3xl mx-auto px-4 py-8">
+        <a href="/#blog" class="greenText font-bold mb-6 inline-block"
+            >&larr; Back to Blog</a
+        >
+
+        <article class="prose dark:prose-invert">
+            <h1>{post.data.title}</h1>
+            <Content />
+        </article>
+    </main>
+</Layout>
